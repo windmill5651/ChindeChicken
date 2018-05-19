@@ -66,7 +66,7 @@ public static class Debug
     /// ログの有効状態を設定します。
     /// </summary>
     /// <param name="isEnable"></param>
-    public static void LogEnabled( bool isEnable )
+    public static void SetLogEnabled( bool isEnable )
     {
         Logger.logEnabled = isEnable;
     }
