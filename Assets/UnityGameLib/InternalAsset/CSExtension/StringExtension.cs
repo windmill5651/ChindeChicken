@@ -1,7 +1,7 @@
 ﻿/// <summary>
 /// C#拡張機能の名前空間
 /// </summary>
-namespace Wugl.CSExtensions
+namespace Kugl.CSExtensions
 {
 
     /// <summary>
