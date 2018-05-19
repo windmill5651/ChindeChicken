@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /// <summary>
 ///  Debug
@@ -31,23 +32,49 @@ public static class Debug
         }
     }
 
+    /// <summary>
+    /// ログの有効状態を取得します。
+    /// </summary>
+    public static bool IsLogEnable
+    {
+        get { return Logger.logEnabled; }
+    }
+
+    /// <summary>
+    /// 現在のログタイプです。
+    /// </summary>
+    public static LogType CurrentType
+    {
+        get { return Logger.filterLogType; }
+    }
+
     #endregion
+
 
     #region メソッド
 
     /// <summary>
     /// ログのフィルターを指定します。
     /// </summary>
-    /// <param name="logType">ログのタイプです。</param>
+    /// <param name="logType">ログのタイプ</param>
     public static void LogFilter( LogType logType )
     {
         Logger.filterLogType = logType;
     }
 
     /// <summary>
+    /// ログの有効状態を設定します。
+    /// </summary>
+    /// <param name="isEnable"></param>
+    public static void LogEnabled( bool isEnable )
+    {
+        Logger.logEnabled = isEnable;
+    }
+
+    /// <summary>
     /// ログ出力をします。
     /// </summary>
-    /// <param name="message">ログです</param>
+    /// <param name="message">ログメッセージ</param>
     public static void Log( object message )
     {
         Logger.Log( message );
@@ -58,9 +85,28 @@ public static class Debug
     /// </summary>
     /// <param name="tag">タグ</param>
     /// <param name="message">ログメッセージ</param>
-    public static void LogWarning( string tag = "", object message )
+    public static void LogWarning( string tag , object message )
     {
         Logger.LogWarning( tag, message );
+    }
+
+    /// <summary>
+    /// エラーログを出します。
+    /// </summary>
+    /// <param name="tag">タグ</param>
+    /// <param name="message">ログメッセージ</param>
+    public static void LogError( string tag, object message )
+    {
+        Logger.LogError( tag, message );
+    }
+
+    /// <summary>
+    /// 例外のログを出力します。
+    /// </summary>
+    /// <param name="exception">例外</param>
+    public static void LogException( Exception exception )
+    {
+        Logger.LogException( exception );
     }
 
     #endregion
